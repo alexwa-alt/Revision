@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Year 11 Physics Revision Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Year 11 Physics Revision Portal</h1>
+    <button id="backHomeBtn" class="ghost-btn" aria-label="Back to home">← Back to Home</button>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active" aria-labelledby="homeTitle">
+      <h2 id="homeTitle">Choose a Revision Activity</h2>
+      <p class="subtitle">Build confidence with equations, diagrams, and key physics vocabulary.</p>
+      <div class="home-grid">
+        <button class="home-card" data-target="flashcardsView">
+          <span>Equation Flashcards</span>
+          <small>Spaced retrieval practice</small>
+        </button>
+        <button class="home-card" data-target="diagramsView">
+          <span>Diagrams</span>
+          <small>Interactive labelled scenarios</small>
+        </button>
+        <button class="home-card" data-target="keywordsView">
+          <span>Keyword Matching</span>
+          <small>Definitions across topics</small>
+        </button>
+      </div>
+    </section>
+
+    <section id="flashcardsView" class="view" aria-labelledby="flashcardsTitle">
+      <h2 id="flashcardsTitle">Key Equation Flashcards</h2>
+      <div class="stats-row">
+        <p id="flashcardProgress">Card 1</p>
+        <p id="flashcardAccuracy">Accuracy: 0%</p>
+      </div>
+
+      <div id="flashcardContainer" class="flashcard-wrapper" aria-live="polite">
+        <div id="flashcard" class="flashcard" role="button" tabindex="0" aria-label="Flip flashcard">
+          <div class="flashcard-face flashcard-front">
+            <h3 id="equationName"></h3>
+            <p>Tap to reveal equation</p>
+          </div>
+          <div class="flashcard-face flashcard-back">
+            <p id="equationFormula"></p>
+            <p class="hint">How did you do?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button id="wrongBtn" class="danger">❌ I got it wrong</button>
+        <button id="rightBtn" class="success">✅ I got it right</button>
+      </div>
+    </section>
+
+    <section id="diagramsView" class="view" aria-labelledby="diagramsTitle">
+      <h2 id="diagramsTitle">Interactive Labelled Diagrams</h2>
+      <p class="subtitle">Drag labels into place (or tap label then target). Distractors are included.</p>
+      <div id="scenarioMenu" class="scenario-menu"></div>
+
+      <div class="diagram-layout">
+        <div id="diagramBoard" class="diagram-board" aria-live="polite"></div>
+        <div>
+          <h3>Labels</h3>
+          <p id="diagramFeedback" class="feedback">Select a scenario to begin.</p>
+          <div id="labelPool" class="label-pool"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="keywordsView" class="view" aria-labelledby="keywordsTitle">
+      <h2 id="keywordsTitle">Keyword Matching</h2>
+      <p class="subtitle">Match each term to its best definition.</p>
+      <div id="matchingList" class="matching-list"></div>
+      <div class="action-row">
+        <button id="checkMatchesBtn" class="primary">Check Answers</button>
+        <button id="retryMatchesBtn" class="ghost-btn">Retry</button>
+        <button id="newSetBtn" class="ghost-btn">New Set</button>
+      </div>
+      <p id="matchScore" class="feedback"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
